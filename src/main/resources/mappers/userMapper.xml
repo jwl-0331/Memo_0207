@@ -6,7 +6,7 @@
 <mapper namespace="com.jwl.memo.user.dao.UserDAO">
 	<insert id="insertUser" parameterType="map">
 		INSERT INTO
-			`USER`
+			`user`
 		(
 			`loginId`
 			, `password`
