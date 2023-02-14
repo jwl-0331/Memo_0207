@@ -11,6 +11,7 @@
 			`userId`
 			, `title`
 			, `content`
+			, `imagePath`
 			, `createdAt`
 			, `updatedAt`
 		)
@@ -19,6 +20,7 @@
 			#{userId}
 			, #{title}
 			, #{content}
+			, #{imagePath}
 			, now()
 			, now()
 		)

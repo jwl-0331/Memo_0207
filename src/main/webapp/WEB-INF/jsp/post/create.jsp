@@ -28,7 +28,7 @@
 					<textarea rows="10" class="form-control" id="contentInput"></textarea>
 				</div>
 				<div class="mt-2">
-					<input type="file">
+					<input type="file" id="fileInput">
 				</div>
 				<div class="d-flex justify-content-between mt-2">
 					<a href="/post/list/view" class="btn btn-info">목록으로</a>
@@ -53,10 +53,18 @@
 					alert("내용을 입력하세요");
 					return;
 				}
+				
+				var formData = new FormData();
+				formData.append("title", title);
+				formData.append("content", content);
+				formData.append("file", $("#fileInput")[0].files[0])
 				$.ajax({
 					type:"post"
 					, url:"/post/create"
-					, data:{"title":title, "content":content}
+					, data:formData
+					, enctype:"multipart/form-data" // 파일 업로드 필수 항목
+					, processData:false // 파일 업로드 필수 항목
+					, contentType:false //파일 업로드 필수 항목
 					, success:function(data){
 						if(data.result == "success"){
 							location.href= "/post/list/view"

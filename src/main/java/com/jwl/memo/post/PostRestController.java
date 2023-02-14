@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.jwl.memo.post.bo.PostBO;
 
@@ -23,6 +24,7 @@ public class PostRestController {
 	public Map<String, String>postCreate(
 			@RequestParam("title")String title
 			,@RequestParam("content") String content
+			,@RequestParam("file") MultipartFile file
 			, HttpServletRequest request){
 		HttpSession session = request.getSession();
 		
@@ -30,7 +32,7 @@ public class PostRestController {
 		//setAttribute ->String , Object 로 저장된다 upcasting 을통해 파라미터를 전달 받는다
 		//get 도 Object 로 리턴 따라서 int 로 형변환 downcasting (다형성)
 		int userId = (Integer) session.getAttribute("userId");
-		int count = postBO.addPost(userId, title, content);
+		int count = postBO.addPost(userId, title, content, file);
 		Map<String, String> map = new HashMap<>();
 		if(count == 1) {
 			map.put("result", "success");
