@@ -10,12 +10,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
 	
+	//다른 곳에서 변수 명을 사용할 수있게 static 변수 (객체 생성없이 사용가능)
+	//final : 값은 수정될 수없다
+	public static final String fileUploadPath = "C:\\Users\\mm940\\Documents\\lecture\\webProjectMemo\\images";
+
 	//파일을 저장하고, 클라이언트에서 접근 가능한 주소를 만들어서 리턴 하는 기능
 	public static String saveFile(int userId,MultipartFile file) {
 		
-		//파일 저장
-		String fileUploadPath = "C:\\Users\\mm940\\Documents\\lecture\\webProjectMemo\\images";
-		
+		//파일 저장		
 		//사용자 별로 폴더를 구분한다.
 		//사용자 별로 폴더를 새로 만든다.
 		//폴더 이름 : userId_현재시간
