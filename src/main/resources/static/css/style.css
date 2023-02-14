@@ -10,6 +10,9 @@ header{
 	background-color:#dddddd;
 }
 
+.input-box {
+	width:650px;
+}
 .contents > .joinbox{
 	width:350px;
 }
@@ -17,8 +20,4 @@ header{
 footer{
 	height:50px;
 	background-color:#dddddd;
-}
-
-.input-box{
-	width:650px;
 }

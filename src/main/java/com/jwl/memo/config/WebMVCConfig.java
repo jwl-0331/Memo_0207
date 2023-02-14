@@ -15,7 +15,7 @@ public class WebMVCConfig implements WebMvcConfigurer{
 		
 		// 그 뒤에는 경로 따라오는대로 그대로
 		registry.addResourceHandler("/images/**")
-		.addResourceLocations("file:///" + FileManagerService.fileUploadPath);
+		.addResourceLocations("file:///" + FileManagerService.fileUploadPath + "/");
 		
 	}
 }
