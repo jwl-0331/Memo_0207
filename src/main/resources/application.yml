@@ -5,6 +5,10 @@
 #spring.datasource.username=root
 #spring.datasource.password=dlwodnjs2!
 spring:
+  application:
+    name: user-service
+  main:
+    allow-circular-references: true
   mvc:
     static-path-pattern: /static/**
     view:

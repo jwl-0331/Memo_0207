@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 public class PostRestController {
 	@Autowired
 	private PostBO postBO;
-	@PostMapping("/create")
+	@PostMapping("/create" )
 	public Map<String, String>postCreate(
 			@RequestParam("title")String title
 			,@RequestParam("content") String content
