@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +16,40 @@
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	<div id="wrap">
-		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
-		<section>
-			<h2>메모 게시판</h2>
+	<body>
+	<div class="container">
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<section class="d-flex justify-content-center">
+			<div class="col-9 my-5">
+				<h2 class="text-center">메모 리스트</h2>
+				
+				<table class="table text-center mt-3">
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>제목</th>
+							<th>시간</th>
+						</tr>
+						
+					</thead>
+					<tbody>
+		
+						<tr>
+							<td></td>
+							<td><a href="#"> </a></td>
+							<td></td>
+						</tr>
+					</tbody>
+				
+				</table>
+				
+				<div class="text-right">
+					<a href="/post/create/view" class="btn btn-primary">글쓰기</a>
+				</div>
+				
+			</div>
 		</section>
-		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 </body>
 </html>
