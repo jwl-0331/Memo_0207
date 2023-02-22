@@ -59,4 +59,43 @@ public class FileManagerService {
 		// /images/2_38239823/test.png
 		return "/images" + directoryName + file.getOriginalFilename();
 	}
+	
+	// 파일 삭제 메소드
+	public static boolean removeFile(String filePath) {
+		//삭제 경로 /images 를 제거하고
+		// 실제 파일 저장 경로에 이어 붙여준다.
+		// "C:\\Users\\mm940\\Documents\\lecture\\webProjectMemo\\images";
+		// filePath 에서 /images 를 제거
+		String realFilePath = fileUploadPath + filePath.replace("/images", "");
+		Path path = Paths.get(realFilePath);
+		
+		//파일이 존재하는지 확인
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+				return false;
+			}
+		}
+		
+		// 디렉토리 삭제 (파일이름 빼고 파일이름은 파일마다 이름이 다르다)
+		// 파일의 디렉토리 경로를 리턴
+		Path dirPath = path.getParent();
+		//디렉토리 존재하는지
+		if(Files.exists(dirPath)) {
+			try {
+				Files.delete(dirPath);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }
